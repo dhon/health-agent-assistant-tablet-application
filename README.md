@@ -1,4 +1,4 @@
-# health-agent-assistant
+# health-agent-assistant-tablet-application
 CS320: Software Engineering
 
 ## Overview
