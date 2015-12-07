@@ -24,10 +24,266 @@
   <body ng-app="starter">
 
     <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
+      <ion-header-bar class="bar bar-header bar-balanced">
+        <h1 class="title" align="center">Restaurant Inspection Form</h1>
       </ion-header-bar>
       <ion-content>
+        <div class="list list-inset">
+          <label class="item item-input">
+            <span class="input-label">Name</span>
+	    <input type="text">
+          </label>
+          <label class="item item-input">
+	    <span class="input-label">Date</span>
+            <input type="date">
+          </label>
+<label class="item item-input">
+	    <span class="input-label">Address</span>    
+            <input type="text">
+          </label>
+          <label class="item item-input">
+	    <span class="input-label">Telephone</span>            
+	    <input type="tel">
+          </label>
+<label class="item item-input">
+	    <span class="input-label">Owner</span> 
+            <input type="text" >
+          </label>
+          <label class="item item-input">
+	    <span class="input-label">Person in Charge</span>
+            <input type="text">
+          </label>
+<label class="item item-input">
+	    <span class="input-label">Inspector</span>
+            <input type="text"> 
+          </label>
+          <label class="item item-input">
+ 	    <span class="input-label">Risk Level</span>
+            <input type="text">
+          </label>
+          <label class="item item-radio">
+            <input type="radio" name="group">
+              <div class="radio-content">
+                <div class="item-content">
+        	  HACCP? 
+      		</div>
+      		<i class="radio-icon ion-checkmark"></i>
+    	      </div>
+  	    </label>          
+	  <label class="item item-input">
+	    <span class="input-label">Time In:</span>
+            <input type="text" >
+          </label>
+	  <label class="item item-input">
+ 	    <span class="input-label">Time Out:</span>
+            <input type="text" >
+          </label>
+        </div>
+        <div class="list list-inset">
+          <label class="item item-input item-select item-text-wrap">
+    	    <div class="input-label">
+      	      Type of Operation(s): 
+    	    </div>
+    	    <select>
+      	      <option selected>Food Service</option>
+      	      <option >Retail</option>
+      	      <option>Residential Kitchen</option>
+	      <option>Mobile</option>
+              <option>Temporary</option>
+              <option>Caterer</option>
+              <option>Bed & Breakfast</option>
+    	    </select>
+  	  </label>
+          <label class="item item-input">
+	    <span class="input-label">Permit No.</span>
+   <input type="text">
+ </label>
+	</div>
+        <div class="list list-inset">
+          <label class="item item-input item-select">
+    	    <div class="input-label">
+      	      Inspection Type: 
+    	    </div>
+    	    <select>
+      	      <option selected>Routine</option>
+      	      <option >Re-inspection</option>
+                    	      <option>Residential Kitchen</option>
+	      <option>Mobile</option>
+              <option>Temporary</option>
+              <option>Caterer</option>
+              <option>Bed & Breakfast</option>
+	      <option>Other</option>
+	    </select>
+          
+  	  </label><label class="item item-input">
+	    <span class="input-label">Other:</span>
+            <input type="text"> 
+	  </label>
+              <label class="item item-input">
+		<span class="input-label">Previous Inspection:</span>
+                <input type="text">
+   	      </label>
+	      <label class="item item-input">
+		<span class="input-label">Date:</span>
+ 	        <input type="date" >
+ 	      </label>
+	</div>
+	<div class="violations">
+	  FOOD PROTECTION MANAGEMENT
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">
+		</label>
+	        1. PIC Assigned / Knowledgeable / Duties
+	      </li>
+	    </ul>
+	  EMPLOYEE HEALTH
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">
+		</label>
+	        2. Reporting of Diseases by Food Employee and PIC
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">	        
+		</label>
+		3. Personnel with Infections Restricted / Excluded
+	      </li>
+  	    </ul>
+            FOOD FROM APPROVED SOURCE 
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">
+		</label>
+	        4. Food and Water from Approved Source
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">	        
+		</label>
+		5. Receiving / Condition
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">
+		</label>
+	        6. Tags / Records / Accuracy of Ingredient Statements
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">	        
+		</label>
+		7. Conformance with Approved Procedures / HACCP Plans
+	      </li>
+  	    </ul>
+	    PROTECTION FROM CONTAMINATION
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">
+		</label>
+	        8. Separation / Segregation / Protection
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">
+		</label>
+	        9. Food Contact Surfaces Cleaning and Sanitizing
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">
+		</label>
+	        10. Proper Adequate Handwashing
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">	        
+		</label>
+		11. Good Hygienic Practices
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">
+		</label>
+	        12. Prevention of Contamination from Hands
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">	        
+		</label>
+		13. Handwash Facilities
+	      </li>
+  	    </ul>
+            PROTECTION FROM CHEMICALS
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">
+		</label>
+	        14. Approved Food or Color Additives
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">	        
+		</label>
+		15. Toxic Chemicals
+	      </li>
+  	    </ul>
+	    TIME?TEMPERATURE CONTROLS (Potentially Hazardous Foods)
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">
+		</label>
+	        16. Cooking Temperatures
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">	        
+		</label>
+		17. Reheating
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">	        
+		</label>
+		18. Cooling
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">	        
+		</label>
+		19. Hot and Cold Holding
+	      </li><li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">	        
+		</label>
+		20. Time as a Public Health Control
+	      </li>
+  	    </ul>
+	    REQUIREMENTS FOR HIGHLY SUSCEPTIBLE PROPULATIONS (HSP)
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">
+		</label>
+	        21. Food and Food Preparation for HSP
+	      </li>
+  	    </ul>CONSUMER ADVISORY
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox">
+		</label>
+	        22. Posting of Consumer Advisories
+	      </li>
+  	    </ul>
+	</div>
       </ion-content>
     </ion-pane>
   </body>
