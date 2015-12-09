@@ -134,7 +134,6 @@ function getDatabase(location){
 	});
 }
 
-////User API Calls
 ////**************************************************************
 
 //// Server Startup
