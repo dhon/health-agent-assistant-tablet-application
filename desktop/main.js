@@ -1,28 +1,20 @@
 // Skeleton/Comments by Tim Richards
 var express    = require('express');
 var handlebars = require('express-handlebars');
-
 // The body parser is used to parse the body of an HTTP request.
 var bodyParser = require('body-parser');
-
 // Require session library.
 var session    = require('express-session');
-
 // Require flash library.
 var flash      = require('connect-flash');
-
 // The cookie parser is used to parse cookies in an HTTP header.
 var cookieParser = require('cookie-parser');
-
 // Morgan for server logging.
 var morgan = require('morgan');
-
 // Create the app:
 var app = express();
-
 // Set the port number:
 app.set('port', 3000);
-
 //// Start Middleware Setup
 // Static File Serving:
 app.use(express.static(__dirname + '/public'));
@@ -57,9 +49,6 @@ app.use(flash());
 
 
 
-
-
-
 //// Begin User Routes
 
 // This adds the external router defined routes to the app.
@@ -68,8 +57,84 @@ app.use(flash());
 app.use('/data', require('./routes/data-routes'));
 app.use('/mapping', require('./routes/mapping-routes'));
 app.use('/searching', require('./routes/searching-routes'));
-
 //// End User Routes
+
+////**************************************************************
+//// API calls to and from database
+function addLocation(location){
+	$.ajax({
+	  type: "POST",
+	  url: './api/add',
+	  data: location,
+	  success: function(msg){
+     	alert('Success ' + msg);
+   	  },
+	  dataType: "json"
+	});
+}
+
+function editLocation(location, id){
+	$.ajax({
+	  type: "POST",
+	  url: './api/edit',
+	  data: {
+	  	'location': location.location,
+	  	'type': location.type,
+	  	'Name': location.name,
+	  	'Address': location.address,
+	  	'Telephone': location.telephone,
+	  	'Owner': location.owner,
+	  	'Person': location.person,
+	  	'id': location.id
+	  },
+	  success: function(msg){
+     	alert('Success ' + msg);
+   	  },
+	  dataType: "json"
+	});
+}
+
+function removeLocation(location){
+	$.ajax({
+	  type: "POST",
+	  url: './api/remove',
+	  data: {
+	  	'location': location.location,
+	  	'type': location.type,
+	  	'id': location.id
+	  },
+	  success: function(msg){
+     	alert('Success ' + msg);
+   	  },
+	  dataType: "json"
+	});
+}
+
+function getLocation(location){
+	$.ajax({
+	  type: "GET",
+	  url: './api/get',
+	  data: location,
+	  success: function(msg){
+     	alert('Success ' + msg);
+   	  },
+	  dataType: "json"
+	});
+}
+
+function getDatabase(location){
+	$.ajax({
+	  type: "GET",
+	  url: './api/database',
+	  data: location.location,
+	  success: function(msg){
+     	alert('Success ' + msg);
+   	  },
+	  dataType: "json"
+	});
+}
+
+////**************************************************************
 
 //// Server Startup
 app.listen(app.get('port'), () => {
