@@ -34,17 +34,17 @@
         <div class="list list-inset">
           <label class="item item-input">
             <span class="input-label">Address</span>
-	    	<input type="text">
+	    	<input type="text" name="system-location">
           </label>
           <label class="item item-input">
             <span class="input-label">City/Town</span>
-	    	<input type="text">
+	    	<input type="text" name="system-city">
           </label>
           <label class="item item-input item-select">
           	<div class="input-label">
           	  State
           	</div>
-          	<select>
+          	<select name="system-state">
           	  <option>Alabama</option>
           	  <option>Alaska</option>
           	  <option>Arizona</option>
@@ -99,28 +99,28 @@
           </label>
           <label class="item item-input">
             <span class="input-label">Zip Code</span>
-	    	<input type="text">
+	    	<input type="text" name="system-zip">
           </label>
 		</div>
 		<h4 class="title">System Owner</h4>
         <div class="list list-inset">
           <label class="item item-input">
             <span class="input-label">Name</span>
-	    	<input type="text">
+	    	<input type="text" name"owner-name">
           </label>
           <label class="item item-input">
             <span class="input-label">Address</span>
-	    	<input type="text">
+	    	<input type="text" name="owner-address">
           </label>
           <label class="item item-input">
             <span class="input-label">City/Town</span>
-	    	<input type="text">
+	    	<input type="text" name="owner-city">
           </label>
           <label class="item item-input item-select">
           	<div class="input-label">
           	  State
           	</div>
-          	<select>
+          	<select name="owner-state">
           	  <option>Alabama</option>
           	  <option>Alaska</option>
           	  <option>Arizona</option>
@@ -175,11 +175,11 @@
           </label>
           <label class="item item-input">
             <span class="input-label">Zip Code</span>
-	    	<input type="text">
+	    	<input type="text" name="owner-zip">
           </label>
           <label class="item item-input">
             <span class="input-label">Telephone Number</span>
-	    	<input type="tel">
+	    	<input type="tel" name="owner-tel">
           </label>
 		</div>
 
@@ -187,42 +187,42 @@
 		<div class="list list-inset">
           <label class="item item-input">
             <span class="input-label">Date of Pumping</span>
-	    	<input type="date">
+	    	<input type="date" name="date-of-pumping">
           </label>
           <label class="item item-input">
             <span class="input-label">Quantity Pumped (gallons)</span>
-	    	<input type="text">
+	    	<input type="text" name="quantity-pumped">
           </label>
 		</div>
 		<h4 class="title">Component</h4>
 		<ul class="list list-inset">
           <li class="item item-checkbox">
           	<label class="checkbox">
-          	  <input type="checkbox">
+          	  <input type="checkbox" name="components-cesspool">
           	</label>
           	Cesspool(s)
           </li>
           <li class="item item-checkbox">
           	<label class="checkbox">
-          	  <input type="checkbox">
+          	  <input type="checkbox" name="components-septic">
           	</label>
           	Septic Tank
           </li>
           <li class="item item-checkbox">
           	<label class="checkbox">
-          	  <input type="checkbox">
+          	  <input type="checkbox" name="components-tight">
           	</label>
           	Tight Tank
           </li>
           <li class="item item-checkbox">
           	<label class="checkbox">
-          	  <input type="checkbox">
+          	  <input type="checkbox" name="components-grease">
           	</label>
           	Grease Trap
           </li>
           <li class="item item-checkbox">
           	<label class="checkbox">
-          	  <input type="checkbox">
+          	  <input type="checkbox" name="components-other">
           	</label>
           	Other
           </li>
@@ -230,13 +230,13 @@
 		<div class="list list-inset">
           <label class="item item-input">
             <span class="input-label">If other, please describe</span>
-	    	<input type="text">
+	    	<input type="text" name="other-description">
           </label>
 		</div>
 		<h4 class="title">Effluent Tee Filter present?</h4>
 		<div class="list list-inset">
           <label class="item item-radio">
-          	<input type="radio" name="group">
+          	<input type="radio" name="tee-filter-present-yes">
           	<div class="radio-content">
           	  <div class="item-content">
           	  	Yes
@@ -245,7 +245,7 @@
           	</div>
           </label>
           <label class="item item-radio">
-          	<input type="radio" name="group">
+          	<input type="radio" name="tee-filter-present-no">
           	<div class="radio-content">
           	  <div class="item-content">
           	  	No
@@ -257,7 +257,7 @@
 		<h4 class="title">If yes, was it cleaned?</h4>
 		<div class="list list-inset">
           <label class="item item-radio">
-          	<input type="radio" name="group">
+          	<input type="radio" name="cleaned-yes">
           	<div class="radio-content">
           	  <div class="item-content">
           	  	Yes
@@ -266,7 +266,7 @@
           	</div>
           </label>
           <label class="item item-radio">
-          	<input type="radio" name="group">
+          	<input type="radio" name="cleaned-no">
           	<div class="radio-content">
           	  <div class="item-content">
           	  	No
@@ -278,45 +278,45 @@
 		<div class="list list-inset">
           <label class="item item-input">
             <span class="input-label">Observed condition of component pumped</span>
-	    	<input type="text">
+	    	<input type="text" name="condition">
           </label>
 		</div>
 		<h4 class="title">System Pumped By</h4>
 		<div class="list list-inset">
           <label class="item item-input">
             <span class="input-label">Name</span>
-	    	<input type="text">
+	    	<input type="text" name="pumper-name">
           </label>
           <label class="item item-input">
             <span class="input-label">Company</span>
-	    	<input type="text">
+	    	<input type="text" name="pumper-company">
           </label>
           <label class="item item-input">
             <span class="input-label">Vehicle License Number</span>
-	    	<input type="text">
+	    	<input type="text" name="pumper-license">
           </label>
 		</div>
 		<h4 class="title">Location where contents were disposed</h4>
 		<div class="list list-inset">
           <label class="item item-input">
             <span class="input-label">Location</span>
-	    	<input type="text">
+	    	<input type="text" name="disposal-location">
           </label>
           <label class="item item-input">
             <span class="input-label">Signature of Hauler</span>
-	    	<input type="text">
+	    	<input type="text" name="hauler-signature">
           </label>
           <label class="item item-input">
             <span class="input-label">Date</span>
-	    	<input type="date">
+	    	<input type="date" name="hauler-date">
           </label>
           <label class="item item-input">
             <span class="input-label">Signature of Receiving Facility</span>
-	    	<input type="text">
+	    	<input type="text" name="receiving-signature">
           </label>
           <label class="item item-input">
             <span class="input-label">Date</span>
-	    	<input type="date">
+	    	<input type="date" name="receiving-date">
           </label>
 		</div>
       </ion-content>
