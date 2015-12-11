@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar bar-header bar-balanced">
+        <h1 class="title" align="center">Restaurant Inspection Form</h1>
+      </ion-header-bar>
+      <ion-content style="">
+
+      <form id="restaurantInspectionForm" ng-submit="SubmitRestaurantForm(restaurant)">
+      	RESTAURANT INFO
+
+        <div class="list list-inset">
+
+          <label class="item item-input">
+            <span class="input-label">Name</span>
+	    <input type="text" name="name" ng-model="restaurant.name" value="Steve">
+          </label>
+          <label class="item item-input">
+	    <span class="input-label">Date</span>
+            <input type="date" name="date" ng-model="restaurant.date" value="1999/10/01">
+          </label>
+<label class="item item-input">
+	    <span class="input-label">Address</span>    
+            <input type="text" name="address" ng-model="restaurant.address" value="12 Main St">
+          </label>
+          <label class="item item-input">
+	    <span class="input-label">Telephone</span>            
+	    <input type="tel" name="telephone" ng-model="restaurant.telephone" value="800-588-2300">
+          </label>
+<label class="item item-input">
+	    <span class="input-label">Owner</span> 
+            <input type="text" name="owner" ng-model="restaurant.owner" value="Billy">
+          </label>
+          <label class="item item-input">
+	    <span class="input-label">Person in Charge</span>
+            <input type="text" name="pic" ng-model="restaurant.pic">
+          </label>
+<label class="item item-input">
+	    <span class="input-label">Inspector</span>
+            <input type="text" name="inspector" ng-model="restaurant.inspector"> 
+          </label>
+          <label class="item item-input">
+ 	    <span class="input-label">Risk Level</span>
+            <input type="text" name="risk-level" ng-model="restaurant.riskLevel">
+          </label>
+          <label class="item item-input item-select">
+           <div class="input-label">
+	     HACCP?
+	   </div>
+	   <select  name="haccp">
+	     <option>Yes</option>
+	     <option>No</option>
+  	   </select>
+	  </label>        
+	  <label class="item item-input">
+	    <span class="input-label">Time In:</span>
+            <input type="text" name="time-in" ng-model="restaurant.timeIn">
+          </label>
+	  <label class="item item-input">
+ 	    <span class="input-label">Time Out:</span>
+            <input type="text" name="time-out" ng-model="restaurant.timeOut">
+          </label>
+        </div>
+        <div class="list list-inset">
+          <label class="item item-input item-select item-text-wrap">
+    	    <div class="input-label">
+      	      Type of Operation(s): 
+    	    </div>
+    	    <select name="operation-type" ng-model="restaurant.operationType">
+      	      <option selected>Food Service</option>
+      	      <option >Retail</option>
+      	      <option>Residential Kitchen</option>
+	      <option>Mobile</option>
+              <option>Temporary</option>
+              <option>Caterer</option>
+              <option>Bed & Breakfast</option>
+    	    </select>
+  	  </label>
+          <label class="item item-input">
+	    <span class="input-label">Permit No.</span>
+   <input type="text" name="permit" ng-model="restaurant.permit">
+ </label>
+	</div>
+        <div class="list list-inset">
+          <label class="item item-input item-select">
+    	    <div class="input-label">
+      	      Inspection Type: 
+    	    </div>
+    	    <select name="inspection-type" ng-model="restaurant.inspectionType">
+      	      <option selected>Routine</option>
+      	      <option >Re-inspection</option>
+                    	      <option>Residential Kitchen</option>
+	      <option>Mobile</option>
+              <option>Temporary</option>
+              <option>Caterer</option>
+              <option>Bed & Breakfast</option>
+	      <option>Other</option>
+	    </select>
+          
+  	  </label><label class="item item-input">
+	    <span class="input-label">Other:</span>
+            <input type="text" name="other-inspection-type" ng-model="restaurant.otherInspectionType"> 
+	  </label>
+              <label class="item item-input">
+		<span class="input-label">Previous Inspection:</span>
+                <input type="text" name="previous-inspection" ng-model="restaurant.previousInspection">
+   	      </label>
+	      <label class="item item-input">
+		<span class="input-label">Date:</span>
+ 	        <input type="date" name="previous-inspection-date" ng-model="restaurant.previousInspectionDate">
+ 	      </label>
+	</div>
+	<div class="violations">
+	  FOOD PROTECTION MANAGEMENT
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-1" ng-model="restaurant.violationOne">
+		</label>
+	        1. PIC Assigned / Knowledgeable / Duties
+	      </li>
+	    </ul>
+	  EMPLOYEE HEALTH
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-2" ng-model="restaurant.violationTwo">
+		</label>
+	        2. Reporting of Diseases by Food Employee and PIC
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-3" ng-model="restaurant.violationThree">	        
+		</label>
+		3. Personnel with Infections Restricted / Excluded
+	      </li>
+  	    </ul>
+            FOOD FROM APPROVED SOURCE 
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-4" ng-model="restaurant.violationFour">
+		</label>
+	        4. Food and Water from Approved Source
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-5" ng-model="restaurant.violationFive">	        
+		</label>
+		5. Receiving / Condition
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-6" ng-model="restaurant.violationSix">
+		</label>
+	        6. Tags / Records / Accuracy of Ingredient Statements
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-7" ng-model="restaurant.violationSeven">	        
+		</label>
+		7. Conformance with Approved Procedures / HACCP Plans
+	      </li>
+  	    </ul>
+	    PROTECTION FROM CONTAMINATION
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-8" ng-model="restaurant.violationEight">
+		</label>
+	        8. Separation / Segregation / Protection
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-9" ng-model="restaurant.violationNine">
+		</label>
+	        9. Food Contact Surfaces Cleaning and Sanitizing
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-10" ng-model="restaurant.violationTen">
+		</label>
+	        10. Proper Adequate Handwashing
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-11" ng-model="restaurant.violationEleven">	        
+		</label>
+		11. Good Hygienic Practices
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-12" ng-model="restaurant.violationTwelve">
+		</label>
+	        12. Prevention of Contamination from Hands
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-13" ng-model="restaurant.violationThirteen">	        
+		</label>
+		13. Handwash Facilities
+	      </li>
+  	    </ul>
+            PROTECTION FROM CHEMICALS
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-14" ng-model="restaurant.violationFourteen">
+		</label>
+	        14. Approved Food or Color Additives
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-15" ng-model="restaurant.violationFifteen">	        
+		</label>
+		15. Toxic Chemicals
+	      </li>
+  	    </ul>
+	    TIME?TEMPERATURE CONTROLS (Potentially Hazardous Foods)
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-16" ng-model="restaurant.violationSixteen">
+		</label>
+	        16. Cooking Temperatures
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-17" ng-model="restaurant.violationSeventeen">	        
+		</label>
+		17. Reheating
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-18" ng-model="restaurant.violationEighteen">	        
+		</label>
+		18. Cooling
+	      </li>
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-19" ng-model="restaurant.violationNineteen">	        
+		</label>
+		19. Hot and Cold Holding
+	      </li><li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-20" ng-model="restaurant.violationTwenty">	        
+		</label>
+		20. Time as a Public Health Control
+	      </li>
+  	    </ul>
+	    REQUIREMENTS FOR HIGHLY SUSCEPTIBLE PROPULATIONS (HSP)
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation" ng-model="restaurant.violationTwentyOne">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-21">
+		</label>
+	        21. Food and Food Preparation for HSP
+	      </li>
+  	    </ul>CONSUMER ADVISORY
+	    <ul class="list list-inset">
+	      <li class="item item-checkbox item-text-wrap violation">
+	        <label class="checkbox">
+		  <input type="checkbox" name="violation-22" ng-model="restaurant.violationTwentyTwo">
+		</label>
+	        22. Posting of Consumer Advisories
+	      </li>
+  	    </ul>
+	</div>
+ 	<div class="list list-inset blue-items">
+	  <label class="item item-input item-select item-text-wrap blue-item">
+	    <div class="input-label">
+	      23. Management and Personnel
+	    </div>
+	    <select name="violation-23" ng-model="restaurant.violationTwentyThree">
+	      <option>None</option>
+	      <option>Critical</option>
+	      <option>Non-critical</option>
+	    </select>
+	  </label>
+	  <label class="item item-input item-select item-text-wrap blue-item">
+	    <div class="input-label">
+	      24. Food and Food Protection
+	    </div>
+	    <select name="violation-24" ng-model="restaurant.violationTwentyFour">
+	      <option>None</option>
+	      <option>Critical</option>
+	      <option>Non-critical</option>
+	    </select>
+	  </label>
+	  <label class="item item-input item-select item-text-wrap blue-item">
+	    <div class="input-label">
+	      25. Equipment and Utensils
+	    </div>
+	    <select name="violation-25" ng-model="restaurant.violationTwentyFive">
+	      <option>None</option>
+	      <option>Critical</option>
+	      <option>Non-critical</option>
+	    </select>
+	  </label>
+	  <label class="item item-input item-select item-text-wrap blue-item">
+	    <div class="input-label">
+	      26. Water, Plumbing and Waste
+	    </div>
+	    <select name="violation-26" ng-model="restaurant.violationTwentySix">
+	      <option>None</option>
+	      <option>Critical</option>
+	      <option>Non-critical</option>
+	    </select>
+	  </label>
+	  <label class="item item-input item-select item-text-wrap blue-item">
+	    <div class="input-label">
+	      27. Physical Facility
+	    </div>
+	    <select name="violation-27" ng-model="restaurant.violationTwentySeven">
+	      <option>None</option>
+	      <option>Critical</option>
+	      <option>Non-critical</option>
+	    </select>
+	  </label>
+    	  <label class="item item-input item-select item-text-wrap blue-item">
+	    <div class="input-label">
+	      28. Poisonous or Toxic Materials
+	    </div>
+	    <select name="violation-28" ng-model="restaurant.violationTwentyEight">
+	      <option>None</option>
+	      <option>Critical</option>
+	      <option>Non-critical</option>
+	    </select>
+	  </label>
+	  <label class="item item-input item-select item-text-wrap blue-item">
+	    <div class="input-label">
+	      29. Special Requirements
+	    </div>
+	    <select name="violation-29" ng-model="restaurant.violationTwentyNine">
+	      <option>None</option>
+	      <option>Critical</option>
+	      <option>Non-critical</option>
+	    </select>
+	  </label>
+	  <label class="item item-input item-select item-text-wrap blue-item">
+	    <div class="input-label">
+	      30. Other
+	    </div>
+	    <select name="violation-30" ng-model="restaurant.violationThirty">
+	      <option>None</option>
+	      <option>Critical</option>
+	      <option>Non-critical</option>
+	    </select>
+	  </label>
+	</div>
+	<button class="button button-stable" type="submit">Submit</button>
+</form>
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
