@@ -17,7 +17,11 @@ angular.module('app.routes', [])
     })
         
       
-    
+    .state('search', {
+      url:'/search',
+      templateUrl: 'templates/search.html',
+      controller: 'MainCtrl'
+    })
       
         
     .state('formEntry', {
