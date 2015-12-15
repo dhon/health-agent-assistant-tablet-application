@@ -8,13 +8,51 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('restaurantFormCtrl', function($scope) {
+.controller('restaurantFormCtrl', function($scope, $cordovaSQLite) {
 	$scope.SubmitRestaurantForm = function(restaurant) {
-		console.log(restaurant);
+
+		var query = "INSERT INTO test (name) VALUES (?)";
+		var select = "SELECT name FROM test WHERE name = ?";
+
+      	$cordovaSQLite.execute(db, query, 'McDonalds').then(function(res){
+      
+      	}, function(err){
+        	console.error(err);
+      	});
+
+		console.log(test);
 	}
+
+	$scope.selectByName = function(name){
+      var query = "SELECT name FROM test WHERE name = ?";
+      $cordovaSQLite.execute(db, query, [name]).then(function(res){
+        if(res.rows.length > 0){
+
+			document.getElementById('data-value').innerHTML += res.rows.item(0).name;
+
+        } else {
+          console.log("No results found");
+        }
+      }, function(err){
+        console.error(err);
+      });
+    }
 })
 
 .controller('septicFormCtrl', function($scope) {
 
 })
  
+
+  // .controller("sampleController", function($scope, $cordovaSQLite){
+
+  //   $scope.insertRestaurant = function(name){
+  //     var query = "INSERT INTO restaurant (name) VALUES (?)";
+  //     console.log(name + " is inserted.");
+  //     $cordovaSQLite.execute(db, query, [name]).then(function(res){
+  //       console.log("INSERT ID -> " + res.insertId);
+  //     }, 	function(err){
+  //     });
+  //   }
+
+    
