@@ -31,11 +31,7 @@ angular.module('app', ['ionic', 'ngCordova', 'app.controllers', 'app.routes', 'a
     // $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS restaurant (id integer primary key, name text) CREATE TABLE IF NOT");
     create(db);
 
-  });
-
-})
-
-function create(db){
+    function create(db){
 
 
   // $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS restaurant (id integer primary key, name text),
@@ -70,3 +66,8 @@ function create(db){
   // $cordovaSQLite.execute(db, "CREATE TABLE BUILDINGSEWERMATERIAL( ID INTEGER PRIMARY KEY NOT NULL, OPTION TEXT NOT NULL" );
   // $cordovaSQLite.execute(db, "CREATE TABLE MATERIAL(ID INTEGER PRIMARY KEY NOT NULL, OPTION TEXT NOT NULL");
 }
+
+  });
+
+})
+

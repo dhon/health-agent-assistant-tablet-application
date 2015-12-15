@@ -12,15 +12,13 @@ angular.module('app.controllers', [])
 	$scope.SubmitRestaurantForm = function(restaurant) {
 
 		var query = "INSERT INTO test (name) VALUES (?)";
-		var select = "SELECT name FROM test WHERE name = ?";
 
-      	$cordovaSQLite.execute(db, query, 'McDonalds').then(function(res){
-      
+      	$cordovaSQLite.execute(db, query, [restaurant.name]).then(function(res){
+          console.log(res);
       	}, function(err){
         	console.error(err);
       	});
-
-		console.log(test);
+		//console.log(test);
 	}
 
 	$scope.selectByName = function(name){
