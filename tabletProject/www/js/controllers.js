@@ -11,7 +11,7 @@ angular.module('app.controllers', [])
 .controller('restaurantFormCtrl', function($scope, $cordovaSQLite) {
 	$scope.SubmitRestaurantForm = function(restaurant) {
 
-		var query = "INSERT INTO test (name) VALUES (?)";
+		var query = "INSERT INTO RESTAURANT (NAME) VALUES (?)";
 
       	$cordovaSQLite.execute(db, query, [restaurant.name]).then(function(res){
           console.log(res);
@@ -22,7 +22,7 @@ angular.module('app.controllers', [])
 	}
 
 	$scope.selectByName = function(name){
-      var query = "SELECT name FROM test WHERE name = ?";
+      var query = "SELECT NAME FROM RESTAURANT WHERE NAME = ?";
       $cordovaSQLite.execute(db, query, [name]).then(function(res){
         if(res.rows.length > 0){
 
