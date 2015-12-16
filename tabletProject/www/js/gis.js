@@ -1,10 +1,9 @@
-/*
-Geographic Infomation System class
-Function: get infomation from possible geoinfomation providers 
-and passed longitude and latitude data to user interface and 
-the form data.
-*/
-angular.module('gis', ['ionic'])
+// Ionic Starter App
+
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+angular.module('starter', ['ionic'])
 .controller('GeoCtrl',function($scope){
   $scope.getLocation = function(){
     //seek gps/wifi/cell service to get geo infomation
@@ -18,8 +17,7 @@ angular.module('gis', ['ionic'])
   }
   //if the position is successfully retreived, do passing
   function success(position){
-    document.getElementById("la").innerHTML = position.coords.latitude;
-    document.getElementById("lg").innerHTML = position.coords.longitude;
+    window.alert("latitude: " + position.coords.latitude + "\nlongitude: "+ position.coords.longitude);
   }
 
   function fail()
@@ -27,9 +25,6 @@ angular.module('gis', ['ionic'])
     window.alert("fail recieving message from source");
   }
 })
-
-
-
 
 
 .run(function($ionicPlatform) {
