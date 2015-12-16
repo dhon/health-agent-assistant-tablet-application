@@ -1,0 +1,24 @@
+<ion-view title="Browse / Search">
+    <ion-content overflow-scroll="true" padding="'true'" class="has-header">
+<div ng-init="friends = [{name:'John', phone:'555-1276'},
+                         {name:'Mary', phone:'800-BIG-MARY'},
+                         {name:'Mike', phone:'555-4321'},
+                         {name:'Adam', phone:'555-5678'},
+                         {name:'Julie', phone:'555-8765'},
+                         {name:'Juliette', phone:'555-5678'}]"></div>
+
+<label class="item item-input"><input type="text" ng-model="searchText" placeholder="Search"></label>
+<div class="row header">
+  <div class="col">Restaurant Name</div>
+  <div class="col">Date</div>
+  <div class="col">Owner</div>
+  <div class="col"></div>
+</div>
+<div class="row" ng-repeat="friend in friends | filter:searchText">
+  <div class="col"> {{friend.name}} </div>
+  <div class="col"> {{friend.phone}} </div>
+  <div class="col"> {{friend.phone}} </div>
+  <div class="col"> <button class="button">View</button>
+</ion-content>
+</ion-view>
+     

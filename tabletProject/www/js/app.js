@@ -33,15 +33,14 @@ angular.module('app', ['ionic', 'ngCordova', 'app.controllers', 'app.routes', 'a
 
     function create(db){
 
+    // $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS restaurant (id integer primary key, name text),
+    //   CREATE TABLE IF NOT EXISTS test (id integer primary key, name text)");
 
-  // $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS restaurant (id integer primary key, name text),
-  //   CREATE TABLE IF NOT EXISTS test (id integer primary key, name text)");
+      var test = ["CREATE TABLE IF NOT EXISTS restaurant (id integer primary key, name text)", "CREATE TABLE IF NOT EXISTS test (id integer primary key, name text)"];
 
-  var test = ["CREATE TABLE IF NOT EXISTS restaurant (id integer primary key, name text)", "CREATE TABLE IF NOT EXISTS test (id integer primary key, name text)"];
-
-  for (i = 0; i < test.length; i++) { 
-    $cordovaSQLite.execute(db, test[i]);
-  }
+      for (i = 0; i < test.length; i++) {
+        $cordovaSQLite.execute(db, test[i]);
+      }
 
   // $cordovaSQLite.execute(db, "CREATE TABLE RESTAURANT( ID INTEGER PRIMARY KEY NOT NULL, PROPERTYID INT NOT NULL, NAME TEXT NOT NULL, ADDRESS TEXT NOT NULL, OWNERID INT NOT NULL, PERSONINCHARGE TEXT NOT NULL, FOREIGN KEY(PROPERTYID) REFERENCES PROPERTY(ID), FOREIGN KEY(OWNERID) REFERENCES OWNER(ID), FOREIGN KEY(ID) REFERENCES RESTAURANTINSPECTIONS(RESTAURANTID))");
   // $cordovaSQLite.execute(db, "CREATE TABLE SEPTIC( ID INTEGER PRIMARY KEY NOT NULL, PROPERTYID INT NOT NULL, OWNERID INT NOT NULL, FOREIGN KEY(PROPERTYID) REFERENCES PROPERTY(ID), FOREIGN KEY(ID) REFERENCES SYSTEMPUMPINGRECORD(SEPTICID), FOREIGN KEY(ID) REFERENCES SEPTICINSPECTIONS(SEPTICID), FOREIGN KEY(OWNERID) REFERENCES OWNER(ID), FOREIGN KEY(OWNERID) REFERENCES OWNER(ID))");
@@ -65,7 +64,7 @@ angular.module('app', ['ionic', 'ngCordova', 'app.controllers', 'app.routes', 'a
   // $cordovaSQLite.execute(db, "CREATE TABLE GENERALTYPEOFSYSTEM( ID INTEGER PRIMARY KEY NOT NULL, OPTION TEXT NOT NULL );
   // $cordovaSQLite.execute(db, "CREATE TABLE BUILDINGSEWERMATERIAL( ID INTEGER PRIMARY KEY NOT NULL, OPTION TEXT NOT NULL" );
   // $cordovaSQLite.execute(db, "CREATE TABLE MATERIAL(ID INTEGER PRIMARY KEY NOT NULL, OPTION TEXT NOT NULL");
-}
+    }
 
   });
 

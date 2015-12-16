@@ -20,6 +20,8 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+     <script src="js/gis.js"></script>
+     
   </head>
   <body ng-app="starter">
 
@@ -111,6 +113,11 @@
             <span class="input-label">Name</span>
 	    	    <input type="text" name"ownerName" ng-model="septic.ownerName">
           </label>
+          
+  <div  ng-app = "gis" ng-controller = "GeoCtrl" ng-click = "geoLocation">
+      <button id = "gis_button" ng-click ="getLocation()">Get GeoLocation</button>
+       </div>
+          
           <label class="item item-input">
             <span class="input-label">Address</span>
 	    	    <input type="text" name="ownerAddress" ng-model="septic.ownerAddress">
