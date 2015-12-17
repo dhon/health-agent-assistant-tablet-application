@@ -114,9 +114,9 @@
 	    	    <input type="text" name"ownerName" ng-model="septic.ownerName">
           </label>
           
-  <div  ng-app = "gis" ng-controller = "GeoCtrl" ng-click = "geoLocation">
-      <button id = "gis_button" ng-click ="getLocation()">Get GeoLocation</button>
-       </div>
+  <!-- <div  ng-app = "gis" ng-controller = "GeoCtrl" ng-click = "geoLocation"> -->
+      <!-- <button id = "gis_button" ng-click ="getLocation()">Get GeoLocation</button> -->
+       <!-- </div> -->
           
           <label class="item item-input">
             <span class="input-label">Address</span>
@@ -330,7 +330,8 @@
           </label>
 	    	</div>
 		  </form>
-		  <button class="button button-stable" type="submit">Submit</button>
+      <button class="button button-stable" type="submit">Submit</button>
+      	<button class="button button-stable" ng-click="printReport(septic)"Print</button>
       </ion-content>
     </ion-pane>
   </body>
