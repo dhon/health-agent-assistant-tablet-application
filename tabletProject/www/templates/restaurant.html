@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
+<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+<link href="css/ionic.app.css" rel="stylesheet">
+-->
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+<!-- ionic/angularjs js -->
+<script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+<!-- cordova script (this will be a 404 during development) -->
+<script src="cordova.js"></script>
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/app.js"></script>
-    
-  </head>
-  <body ng-app="starter">
+<!-- your app's js -->
+<script src="js/app.js"></script>
+<script src="js/app.js"></script>
 
-    <ion-pane>
-      <ion-header-bar class="bar bar-header bar-balanced">
-        <h1 class="title" align="center">Restaurant Inspection Form</h1>
-      </ion-header-bar>
-      <ion-content style="">
+</head>
+<body ng-app="starter">
 
-      <form id="restaurantInspectionForm" ng-submit="SubmitRestaurantForm(restaurant)">
-      	RESTAURANT INFO
+<ion-pane>
+<ion-header-bar class="bar bar-header bar-balanced">
+<h1 class="title" align="center">Restaurant Inspection Form</h1>
+</ion-header-bar>
+<ion-content style="">
 
-        <div class="list list-inset">
+<form id="restaurantInspectionForm" ng-submit="SubmitRestaurantForm(restaurant)">
+RESTAURANT INFO
 
-          <label class="item item-input">
-            <span class="input-label">Name</span>
-	    <input type="text" name="name" ng-model="restaurant.name" value="Steve">
-          </label>
-          <label class="item item-input">
-	    <span class="input-label">Date</span>
-            <input type="date" name="date" ng-model="restaurant.date" value="1999/10/01">
-          </label>
-  
-<!-- <div  ng-app = "gis" ng-controller = "GeoCtrl" ng-click = "geoLocation"> -->
-      <!-- <button id = "gis_button" ng-click ="getLocation()">Get Coordinates</button> -->
-          <!-- </div>     -->
+<div class="list list-inset">
+
+  <label class="item item-input">
+    <span class="input-label">Name</span>
+    <input type="text" name="name" ng-model="restaurant.name" value="Steve">
+  </label>
+  <label class="item item-input">
+    <span class="input-label">Date</span>
+    <input type="date" name="date" ng-model="restaurant.date" value="1999/10/01">
+  </label>
+
+<!---<div  ng-app = "gis" ng-controller = "GeoCtrl" ng-click = "geoLocation">
+     <button id = "gis_button" ng-click ="getLocation()">Get Coordinates</button>
+          </div>     --!>
           
 <label class="item item-input">
 	    <span class="input-label">Address</span>    
