@@ -8,11 +8,19 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('restaurantFormCtrl', function($scope) {
+.controller('restaurantFormCtrl', function($scope, $ionicPopup) {
 	$scope.SubmitRestaurantForm = function(restaurant) {
 		console.log(restaurant);
-	}
+   var alertPopup = $ionicPopup.alert({
+     title: 'Success!',
+     template: 'Form was successfully entered.'
+   });
+  
+ 
+}
 })
+
+
 
 .controller('septicFormCtrl', function($scope) {
 
