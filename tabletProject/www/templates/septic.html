@@ -31,7 +31,7 @@
       </ion-header-bar>
       <ion-content>
         
-      <form id="septic-inspection-form" ng-submit="SubmitSepticForm(septic)">
+      <form id="septic-inspection-form">
       SYSTEM PUMPING RECORD
       
       	<h2 class ="title">Facility Information</h2>
@@ -329,8 +329,10 @@
 	        	<input type="date" name="receivingDate" ng-model="septic.receivingDate">
           </label>
 	    	</div>
-		  </form>
-		  <button class="button button-stable" type="submit">Submit</button>
+		 
+		  <button class="button button-balanced button-block" type="submit" ng-click="SubmitSepticForm(septic)">Submit</button>
+       </form>
+      <a href="#/page3" class="button button-stable button-block"> Go Home</a>
       </ion-content>
     </ion-pane>
   </body>

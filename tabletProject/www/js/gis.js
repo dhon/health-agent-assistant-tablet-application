@@ -4,27 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
-.controller('GeoCtrl',function($scope){
-  $scope.getLocation = function(){
-    //seek gps/wifi/cell service to get geo infomation
-    if(navigator.geolocation)
-    {
-    //get position data
-      navigator.geolocation.getCurrentPosition(success,fail);
-    }else{
-      window.alert("fail accessing GPS");
-    }
-  }
-  //if the position is successfully retreived, do passing
-  function success(position){
-    window.alert("latitude: " + position.coords.latitude + "\nlongitude: "+ position.coords.longitude);
-  }
 
-  function fail()
-  {
-    window.alert("fail recieving message from source");
-  }
-})
 
 
 .run(function($ionicPlatform) {

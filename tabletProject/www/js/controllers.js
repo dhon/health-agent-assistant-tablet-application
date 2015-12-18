@@ -20,9 +20,40 @@ angular.module('app.controllers', [])
 }
 })
 
+.controller('GeoCtrl',function($scope){
+  $scope.getLocation = function(){
+    //seek gps/wifi/cell service to get geo infomation
+    if(navigator.geolocation)
+    {
+    //get position data
+      navigator.geolocation.getCurrentPosition(success,fail);
+    }else{
+      window.alert("fail accessing GPS");
+    }
+  }
+  //if the position is successfully retreived, do passing
+  function success(position){
+    window.alert("latitude: " + position.coords.latitude + "\nlongitude: "+ position.coords.longitude);
+  }
+
+  function fail()
+  {
+    window.alert("fail recieving message from source");
+  }
+})
 
 
-.controller('septicFormCtrl', function($scope) {
+.controller('septicFormCtrl', function($scope, $ionicPopup) {
+
+  $scope.SubmitSepticForm = function(septic) {
+    console.log(septic);
+   var alertPopup = $ionicPopup.alert({
+     title: 'Success!',
+     template: 'Form was successfully entered.'
+   });
+  
+ 
+}
 
 })
  

@@ -20,7 +20,7 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
-    <script src="js/gis.js"></script>
+   
     
   </head>
   <body ng-app="starter">
@@ -31,7 +31,7 @@
       </ion-header-bar>
       <ion-content style="">
 
-      <form id="restaurantInspectionForm" ng-submit="SubmitRestaurantForm(restaurant)">
+      <form id="restaurantInspectionForm" >
       	RESTAURANT INFO
 
         <div class="list list-inset">
@@ -378,7 +378,7 @@
 	    </select>
 	  </label>
 	</div>
-	<button class="button button-balanced button-block" type="submit">Submit</button>
+	<button class="button button-balanced button-block" type="submit" ng-click="SubmitRestaurantForm(restaurant)">Submit</button>
 </form>
 	<a href="#/page3" class="button button-stable button-block"> Go Home</a>
       </ion-content>
