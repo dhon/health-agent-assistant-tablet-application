@@ -20,6 +20,8 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    <script src="js/gis.js"></script>
+    
   </head>
   <body ng-app="starter">
 
@@ -42,6 +44,11 @@
 	    <span class="input-label">Date</span>
             <input type="date" name="date" ng-model="restaurant.date" value="1999/10/01">
           </label>
+  
+<div  ng-app = "gis" ng-controller = "GeoCtrl" ng-click = "geoLocation">
+      <button id = "gis_button" ng-click ="getLocation()">Get Coordinates</button>
+          </div>    
+          
 <label class="item item-input">
 	    <span class="input-label">Address</span>    
             <input type="text" name="address" ng-model="restaurant.address" value="12 Main St">
