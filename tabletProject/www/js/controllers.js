@@ -29,7 +29,7 @@ angular.module('app.controllers', [])
 
     var ownerQuery = "INSERT INTO OWNER (OWNERNAME, TELEPHONENUMBER) VALUES (?,?)";
 
-    $cordovaSQLite.execute(db, restQuery, [restaurant.name, restaurant.address, restaurant.pic, 3, 3, 3]).then(function(res){
+    $cordovaSQLite.execute(db, restQuery, [restaurant.name, restaurant.address, restaurant.pic, 1, 1, 1]).then(function(res){
       console.log(res);
     }, function(err){
       console.error(err);
@@ -67,15 +67,34 @@ angular.module('app.controllers', [])
 
   $scope.data = ["JavaScript", "Java", "Ruby", "Python", "Hello"];
 
-  $scope.selectRestaurants = function(){
+
+  $scope.selectRestaurants = function() {
     var query = "SELECT * FROM RESTAURANT";
     $cordovaSQLite.execute(db, query, []).then(function(res){
       if(res.rows.length > 0){
        // document.getElementById('name').innerHTML += res.rows.item(0).NAME;
 
-        var friends = JSON.stringify(res.rows);
-        console.log(friends);
-        // return JSON.stringify(res.rows);
+        // var friends = JSON.stringify(res.rows);
+        var temp = new Array();
+		
+
+		for( i = 0; i < res.rows.length; i++)
+		{
+
+			console.log("i = " + i);
+			console.log(res.rows[i]);
+
+
+		    temp.push(res.rows[i]);
+		}
+
+
+		$scope.restaurants = temp
+
+
+		console.log(temp);
+		// console.log($scope.friends);
+
       } else {
         console.log("No results found");
       }
@@ -83,6 +102,8 @@ angular.module('app.controllers', [])
       console.error(err);
     });
   }
+
+
 })
 
 

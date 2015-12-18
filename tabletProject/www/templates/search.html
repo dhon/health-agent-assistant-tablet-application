@@ -1,6 +1,10 @@
 <ion-view title="Browse / Search">
     <ion-content overflow-scroll="true" padding="'true'" class="has-header">
+
+
+<!-- <div ng-init="friends = {'0': {'NAME': 'Burger King', 'ADDRESS': '123 blah street', 'PERSONINCHARGE': 'Jack'}}"></div> -->
 <div ng-init="selectRestaurants()"></div>
+
 
 <label class="item item-input"><input type="text" ng-model="searchText" placeholder="Search"></label>
 <div class="row header">
@@ -9,11 +13,17 @@
   <div class="col">Owner</div>
   <div class="col"></div>
 </div>
-<div class="row" ng-repeat="(key, val) in {'0': {'NAME': 'Burger King', 'ADDRESS': '123 blah street', 'PERSONINCHARGE': 'Jack'}}">
+
+
+
+
+<div class="row" ng-repeat="(key,val) in restaurants | filter:searchText">
   <div class="col"> {{val.NAME}} </div>
   <div class="col"> {{val.ADDRESS}} </div>
   <div class="col"> {{val.PERSONINCHARGE}} </div>
-  <div class="col"> <button class="button">View</button>
+  <div class="col"> <button class="button">View</button></div>
+</div>
+
 </ion-content>
 </ion-view>
      
