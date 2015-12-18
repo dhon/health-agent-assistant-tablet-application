@@ -45,6 +45,14 @@ angular.module('app.controllers', [])
 
 .controller('septicFormCtrl', function($scope, $ionicPopup) {
 
+  $scope.yesFilter = function() {
+    $scope.filterPresent = true;
+  }
+
+  $scope.noFilter = function() {
+    $scope.filterPresent = false;
+  }
+
   $scope.SubmitSepticForm = function(septic) {
     console.log(septic);
    var alertPopup = $ionicPopup.alert({
