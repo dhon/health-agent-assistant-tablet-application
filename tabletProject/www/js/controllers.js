@@ -14,7 +14,7 @@ angular.module('app.controllers', [])
 
     var alertPopup = $ionicPopup.alert({
      title: 'Success!',
-     template: 'Form was successfully entered.'
+     template: 'Data was successfully entered.'
    });
 
     var restQuery = "INSERT INTO RESTAURANT (NAME, ADDRESS, PERSONINCHARGE) VALUES (?,?,?)";
@@ -74,7 +74,7 @@ angular.module('app.controllers', [])
     console.log(septic);
    var alertPopup = $ionicPopup.alert({
      title: 'Success!',
-     template: 'Form was successfully entered.'
+     template: 'This data will upload upon connection.'
    });
  }
 
@@ -87,6 +87,7 @@ angular.module('app.controllers', [])
 
 
   $scope.selectRestaurants = function() {
+
     var query = "SELECT * FROM RESTAURANT";
     $cordovaSQLite.execute(db, query, []).then(function(res){
       if(res.rows.length > 0){
