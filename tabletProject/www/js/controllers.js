@@ -62,10 +62,27 @@ angular.module('app.controllers', [])
 
 })
  
-.controller('MainCtrl', function($scope, $ionicSideMenuDelegate) {
+.controller('MainCtrl', function($scope, $ionicSideMenuDelegate, $cordovaSQLite) {
   console.log('MainCtrl');
 
   $scope.data = ["JavaScript", "Java", "Ruby", "Python", "Hello"];
+
+  $scope.selectRestaurants = function(){
+    var query = "SELECT * FROM RESTAURANT";
+    $cordovaSQLite.execute(db, query, []).then(function(res){
+      if(res.rows.length > 0){
+       // document.getElementById('name').innerHTML += res.rows.item(0).NAME;
+
+        var friends = JSON.stringify(res.rows);
+        console.log(friends);
+        // return JSON.stringify(res.rows);
+      } else {
+        console.log("No results found");
+      }
+    }, function(err){
+      console.error(err);
+    });
+  }
 })
 
 
