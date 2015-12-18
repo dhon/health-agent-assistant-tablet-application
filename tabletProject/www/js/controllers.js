@@ -17,34 +17,25 @@ angular.module('app.controllers', [])
      template: 'Form was successfully entered.'
    });
 
-    var restQuery = "INSERT INTO RESTAURANT (NAME, ADDRESS, PERSONINCHARGE, ID, PROPERTYID, OWNERID) VALUES (?,?,?,?,?,?)";
-
+    var restQuery = "INSERT INTO RESTAURANT (NAME, ADDRESS, PERSONINCHARGE) VALUES (?,?,?)";
     var ownerQuery = "INSERT INTO OWNER (OWNERNAME, TELEPHONENUMBER) VALUES (?,?)";
 
-    $cordovaSQLite.execute(db, restQuery, [restaurant.name, restaurant.address, restaurant.pic, 5, 5, 5]).then(function(res){
+    // insert restaurant table
+    $cordovaSQLite.execute(db, restQuery, [restaurant.name, restaurant.address, restaurant.pic]).then(function(res){
       console.log(res);
     }, function(err){
       console.error(err);
     });
 
-    $cordovaSQLite.execute(db, ownerQuery, [restaurant.owner, restaurant.telephone]);
+    // insert owner tables
+    $cordovaSQLite.execute(db, ownerQuery, [restaurant.owner, restaurant.telephone]).then(function(res){
+      console.log(res);
+    }, function(err){
+      console.error(err);
+    });
   }
+})
 
-  // this function is used to verify what is inserted exists in the database
-	$scope.selectByName = function(name){
-      var query = "SELECT * FROM RESTAURANT WHERE NAME = ?";
-      $cordovaSQLite.execute(db, query, [name]).then(function(res){
-        if(res.rows.length > 0){
-          document.getElementById('data-value').innerHTML += res.rows.item(0).NAME;
-          console.log(res.rows.item(0).NAME);
-        } else {
-          console.log("No results found");
-        }
-      }, function(err){
-        console.error(err);
-      });
-    }
-  })
 
 .controller('GeoCtrl',function($scope){
   $scope.getLocation = function(){
@@ -99,9 +90,7 @@ angular.module('app.controllers', [])
     var query = "SELECT * FROM RESTAURANT";
     $cordovaSQLite.execute(db, query, []).then(function(res){
       if(res.rows.length > 0){
-       // document.getElementById('name').innerHTML += res.rows.item(0).NAME;
-
-        // var friends = JSON.stringify(res.rows);
+     
         var temp = new Array();
 		
 
@@ -120,7 +109,6 @@ angular.module('app.controllers', [])
 
 
 		console.log(temp);
-		// console.log($scope.friends);
 
       } else {
         console.log("No results found");
@@ -186,15 +174,3 @@ angular.module('app.controllers', [])
     }]
   };
 }]);
-
-// sample controller
-// .controller("sampleController", function($scope, $cordovaSQLite){
-
-  //   $scope.insertRestaurant = function(name){
-  //     var query = "INSERT INTO restaurant (name) VALUES (?)";
-  //     console.log(name + " is inserted.");
-  //     $cordovaSQLite.execute(db, query, [name]).then(function(res){
-  //       console.log("INSERT ID -> " + res.insertId);
-  //     },   function(err){
-  //     });
-  //   }
