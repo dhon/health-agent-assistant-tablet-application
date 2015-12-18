@@ -8,28 +8,20 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('restaurantFormCtrl', function($scope, $cordovaSQLite) {
-
-  
-	// $scope.SubmitRestaurantForm = function(restaurant) {
-
-	// 	var query = "INSERT INTO RESTAURANT (NAME) VALUES (?)";
-
- //      	$cordovaSQLite.execute(db, query, [restaurant.name]).then(function(res){
- //          console.log(res);
- //      	}, function(err){
- //        	console.error(err);
- //      	});
-	// 	//console.log(test);
-	// }
+.controller('restaurantFormCtrl', function($scope, $cordovaSQLite, $ionicPopup) {
 
   $scope.SubmitRestaurantForm = function(restaurant) {
+
+    var alertPopup = $ionicPopup.alert({
+     title: 'Success!',
+     template: 'Form was successfully entered.'
+   });
 
     var restQuery = "INSERT INTO RESTAURANT (NAME, ADDRESS, PERSONINCHARGE, ID, PROPERTYID, OWNERID) VALUES (?,?,?,?,?,?)";
 
     var ownerQuery = "INSERT INTO OWNER (OWNERNAME, TELEPHONENUMBER) VALUES (?,?)";
 
-    $cordovaSQLite.execute(db, restQuery, [restaurant.name, restaurant.address, restaurant.pic, 1, 1, 1]).then(function(res){
+    $cordovaSQLite.execute(db, restQuery, [restaurant.name, restaurant.address, restaurant.pic, 5, 5, 5]).then(function(res){
       console.log(res);
     }, function(err){
       console.error(err);
@@ -52,16 +44,51 @@ angular.module('app.controllers', [])
         console.error(err);
       });
     }
+  })
+
+.controller('GeoCtrl',function($scope){
+  $scope.getLocation = function(){
+    //seek gps/wifi/cell service to get geo infomation
+    if(navigator.geolocation)
+    {
+    //get position data
+      navigator.geolocation.getCurrentPosition(success,fail);
+    }else{
+      window.alert("fail accessing GPS");
+    }
+  }
+  //if the position is successfully retreived, do passing
+  function success(position){
+    window.alert("latitude: " + position.coords.latitude + "\nlongitude: "+ position.coords.longitude);
+  }
+
+  function fail()
+  {
+    window.alert("fail recieving message from source");
+  }
 })
 
-.controller('septicFormCtrl', function($scope) {
+
+.controller('septicFormCtrl', function($scope, $ionicPopup) {
+
+  $scope.yesFilter = function() {
+    $scope.filterPresent = true;
+  }
+
+  $scope.noFilter = function() {
+    $scope.filterPresent = false;
+  }
+
+  $scope.SubmitSepticForm = function(septic) {
+    console.log(septic);
+   var alertPopup = $ionicPopup.alert({
+     title: 'Success!',
+     template: 'Form was successfully entered.'
+   });
+ }
 
 })
 
-.controller('GeoCtrl', function($scope) {
-
-})
- 
 .controller('MainCtrl', function($scope, $ionicSideMenuDelegate, $cordovaSQLite) {
   console.log('MainCtrl');
 

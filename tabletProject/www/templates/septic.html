@@ -31,7 +31,7 @@
       </ion-header-bar>
       <ion-content>
         
-      <form id="septic-inspection-form" ng-submit="SubmitSepticForm(septic)">
+      <form id="septic-inspection-form">
       SYSTEM PUMPING RECORD
       
       	<h2 class ="title">Facility Information</h2>
@@ -244,47 +244,13 @@
           </label>
 		    </div>
 		    <h4 class="title">Effluent Tee Filter present?</h4>
-		    <div class="list list-inset">
-          <label class="item item-radio">
-          	<input type="radio" name="teeFilterPresentYes" ng-model="septic.teeFilterPresentYes">
-          	<div class="radio-content">
-          	  <div class="item-content">
-          	  	Yes
-          	  </div>
-          	  <i class="radio-icon ion-checkmark"></i>
-          	</div>
-          </label>
-          <label class="item item-radio">
-          	<input type="radio" name="teeFilterPresentNo" ng-model="septic.teeFilterPresentNo">
-          	<div class="radio-content">
-          	  <div class="item-content">
-          	  	No
-          	  </div>
-          	  <i class="radio-icon ion-checkmark"></i>
-          	</div>
-          </label>
-		    </div>
-		    <h4 class="title">If yes, was it cleaned?</h4>
-		    <div class="list list-inset">
-          <label class="item item-radio">
-          	<input type="radio" name="cleanedYes" ng-model="septic.cleanedYes">
-          	<div class="radio-content">
-          	  <div class="item-content">
-          	  	Yes
-          	  </div>
-          	  <i class="radio-icon ion-checkmark"></i>
-          	</div>
-          </label>
-          <label class="item item-radio">
-          	<input type="radio" name="cleanedNo" ng-model="septic.cleanedNo">
-          	<div class="radio-content">
-          	  <div class="item-content">
-          	  	No
-          	  </div>
-          	  <i class="radio-icon ion-checkmark"></i>
-          	</div>
-          </label>
-		    </div>
+        <ion-list>
+          <ion-radio ng-click="yesFilter()" ng-model="septic.teeFilterPresent" name="filter" ng-value = "Yes">Yes</ion-radio>
+          <ion-radio ng-click="noFilter()" ng-model="septic.teeFilterPresent" name="filter" ng-value="No">No</ion-radio>  
+		    <h4 class="title" ng-show="filterPresent">If yes, was it cleaned?</h4>
+          <ion-radio ng-model="septic.cleaned" ng-value="Yes" ng-show="filterPresent" name="cleaned">Yes</ion-radio>
+          <ion-radio ng-model="septic.cleaned" ng-value="No" ng-show="filterPresent" name="cleaned">No</ion-radio>
+        </ion-list>
 	    	<div class="list list-inset">
           <label class="item item-input">
             <span class="input-label">Observed condition of component pumped</span>
@@ -329,8 +295,10 @@
 	        	<input type="date" name="receivingDate" ng-model="septic.receivingDate">
           </label>
 	    	</div>
-		  </form>
-		  <button class="button button-stable" type="submit">Submit</button>
+		 
+		  <button class="button button-balanced button-block" type="submit" ng-click="SubmitSepticForm(septic)">Submit</button>
+       </form>
+      <a href="#/page3" class="button button-stable button-block"> Go Home</a>
       </ion-content>
     </ion-pane>
   </body>
