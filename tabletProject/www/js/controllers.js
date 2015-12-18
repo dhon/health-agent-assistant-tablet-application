@@ -27,19 +27,24 @@ angular.module('app.controllers', [])
 
     var restQuery = "INSERT INTO RESTAURANT (NAME, ADDRESS, PERSONINCHARGE, ID, PROPERTYID, OWNERID) VALUES (?,?,?,?,?,?)";
 
-    $cordovaSQLite.execute(db, restQuery, [restaurant.name, restaurant.address, restaurant.pic, 1, 1, 1]).then(function(res){
+    var ownerQuery = "INSERT INTO OWNER (OWNERNAME, TELEPHONENUMBER) VALUES (?,?)";
+
+    $cordovaSQLite.execute(db, restQuery, [restaurant.name, restaurant.address, restaurant.pic, 3, 3, 3]).then(function(res){
       console.log(res);
     }, function(err){
       console.error(err);
     });
+
+    $cordovaSQLite.execute(db, ownerQuery, [restaurant.owner, restaurant.telephone]);
   }
 
   // this function is used to verify what is inserted exists in the database
 	$scope.selectByName = function(name){
-      var query = "SELECT NAME FROM RESTAURANT WHERE NAME = ?";
+      var query = "SELECT * FROM RESTAURANT WHERE NAME = ?";
       $cordovaSQLite.execute(db, query, [name]).then(function(res){
         if(res.rows.length > 0){
-          document.getElementById('data-value').innerHTML += res.rows.item(0).name;
+          document.getElementById('data-value').innerHTML += res.rows.item(0).NAME;
+          console.log(res.rows.item(0).NAME);
         } else {
           console.log("No results found");
         }
